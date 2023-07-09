@@ -15,6 +15,9 @@ gem "turbo-rails"
 # Assets
 gem "tailwindcss-rails"
 
+# Views 
+gem 'view_component', '~> 3.3'
+
 # Other
 gem "bootsnap", require: false
 gem "redis", "~> 4.0"
@@ -32,6 +35,9 @@ end
 
 group :development do
   gem "web-console"
+  gem 'lookbook', '~> 2.0', '>= 2.0.5'
+  gem 'listen', '~> 3.8'
+  gem 'actioncable', '~> 7.0', '>= 7.0.6'
 end
 
 group :test do
