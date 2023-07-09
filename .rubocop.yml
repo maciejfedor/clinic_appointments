@@ -1,0 +1,40 @@
+AllCops:
+  NewCops: enable
+  DisplayCopNames: true
+  Exclude:
+    - 'config.ru'
+    - 'Rakefile'
+    - 'db/**/*'
+    - 'config/environments/*'
+    - 'config/initializers/*'
+    - 'bin/*'
+    - 'vendor/**/*'
+    - 'lib/tasks/*'
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'Gemfile'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
