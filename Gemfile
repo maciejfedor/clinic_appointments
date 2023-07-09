@@ -21,6 +21,11 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 group :development, :test do
+  gem 'annotate', '~> 3.2'
+  gem 'better_errors', '~> 2.10', '>= 2.10.1'
+  gem 'brakeman', '~> 6.0'
+  gem 'bullet', '~> 7.0', '>= 7.0.7'
+  gem 'bundler-audit', '~> 0.9.1', require: false
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
