@@ -13,6 +13,8 @@
 #  updated_at    :datetime         not null
 #
 class Patient < ApplicationRecord
+  has_person_name
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :gender, presence: true
