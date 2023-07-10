@@ -24,6 +24,9 @@ Layout/EmptyLineBetweenDefs:
 Lint/MissingSuper:
   Enabled: false
 
+Style/ParallelAssignment:
+  Enabled: false
+
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 

@@ -42,10 +42,8 @@ module DataImport
       Patient.upsert_all(records, unique_by: :uid)
     end
 
-    def date_of_birth(pesel)
-      year = pesel[0..1]
-      month = pesel[2..3]
-      day = pesel[4..5]
+    def date_of_birth(uid)
+      year, month, day = uid[0..1], uid[2..3], uid[4..5]
 
       if month.to_i > 12
         month = month.to_i - 20
@@ -56,8 +54,8 @@ module DataImport
       Date.new(year.to_i, month.to_i, day.to_i)
     end
 
-    def gender(pesel)
-      gender_number = pesel[9].to_i
+    def gender(uid)
+      gender_number = uid[9].to_i
       gender_number.even? ? "Female" : "Male"
     end
   end
