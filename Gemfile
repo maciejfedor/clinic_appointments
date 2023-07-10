@@ -18,8 +18,9 @@ gem "tailwindcss-rails"
 # Views
 gem "view_component", "~> 3.3"
 
-# Pagination
+# Filtering data
 gem "pagy", "~> 6.0", ">= 6.0.4"
+gem 'ransack', '~> 4.0'
 
 # Other
 gem "bootsnap", require: false
