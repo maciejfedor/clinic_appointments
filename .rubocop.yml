@@ -21,6 +21,12 @@ Style/Documentation:
 Layout/EmptyLineBetweenDefs:
   AllowAdjacentOneLineDefs: true
 
+Lint/MissingSuper:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 

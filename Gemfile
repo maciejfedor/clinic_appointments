@@ -20,6 +20,7 @@ gem "view_component", "~> 3.3"
 
 # Other
 gem "bootsnap", require: false
+gem "name_of_person", "~> 1.1", ">= 1.1.1"
 gem "redis", "~> 4.0"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
