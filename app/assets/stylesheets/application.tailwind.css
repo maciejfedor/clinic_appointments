@@ -2,21 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
-}
-
-*/
-@import "~tailwindcss/base"; 
-/* 
-   Add the following markup AFTER your import statements
-   Notice: this style contains only the rules for pagy-nav
-*/
-
 .pagy-nav.pagination {
   @apply isolate inline-flex -space-x-px rounded-md shadow-sm;
 }

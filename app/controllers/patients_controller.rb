@@ -4,6 +4,7 @@ class PatientsController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @patients = pagy(Patient.all, items: 8)
+    @q = Patient.ransack(params[:q])
+    @pagy, @patients = pagy(@q.result, items: 8)
   end
 end
