@@ -4,6 +4,9 @@ require "csv"
 
 module DataImport
   class ImportPatients < Base
+    # Docs regarding reading gender and DOB from PESEL number:
+    # https://www.gov.pl/web/cyfryzacja/co-to-jest-numer-pesel-i-jak-sie-go-nadaje
+
     FILE_PATH = "#{Rails.root}/db/data/patients_import/fake_medical_patients.csv".freeze
     BATCH_SIZE = 1000 # Adjust the batch size as needed
 
