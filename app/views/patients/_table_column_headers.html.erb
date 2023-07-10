@@ -1,0 +1,17 @@
+   <tr>
+     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+       <%= sort_link(@q, :last_name, "Name", default_order: :desc) %>
+     </th>
+     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+       <%= sort_link(@q, :gender)%>
+     </th>
+     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+       <%= sort_link(@q, :date_of_birth) %>
+     </th>
+     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+       <%= sort_link(@q, :city)%>
+     </th>
+     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+       Action
+     </th>
+   </tr>

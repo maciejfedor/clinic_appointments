@@ -37,4 +37,8 @@ class Patient < ApplicationRecord
     male: "Male",
     female: "Female",
   }
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[city date_of_birth gender last_name]
+  end
 end
