@@ -29,11 +29,11 @@ module DataImport
       records.map do |patient|
         {
           uid: patient[:pesel],
-          first_name: patient[:first_name],
-          last_name: patient[:last_name],
+          first_name: patient[:first_name].capitalize,
+          last_name: patient[:last_name].capitalize,
           gender: gender(patient[:pesel]),
           date_of_birth: date_of_birth(patient[:pesel]),
-          city: patient[:city],
+          city: patient[:city].capitalize,
         }
       end
     end
