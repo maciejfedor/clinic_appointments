@@ -21,6 +21,10 @@
 class Patient < ApplicationRecord
   has_person_name
 
+  # Associations
+  has_many :appointments, dependent: :destroy
+  has_many :doctors, through: :appointments
+
   # Validations
   validates :first_name, presence: true
   validates :last_name, presence: true
