@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   root "patients#index"
 
-  resources :patients, only: [:index]
+  resources :patients, only: [:index] do
+    resources :appointments, only: %i[new create]
+  end
 end
