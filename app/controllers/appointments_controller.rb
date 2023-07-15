@@ -11,6 +11,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params.merge(start_time: date_and_slot_to_start_time))
 
     if @appointment.save
+      flash[:success] = "Appointment created successfully!"
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity

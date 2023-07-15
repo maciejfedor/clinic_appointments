@@ -18,6 +18,7 @@ gem "tailwindcss-rails"
 
 # Views
 gem "flatpickr", "~> 4.6", ">= 4.6.11.0"
+gem "inline_svg", "~> 1.9"
 gem "view_component", "~> 3.3"
 
 # Filtering data

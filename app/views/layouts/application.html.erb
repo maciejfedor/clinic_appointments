@@ -12,9 +12,14 @@
   </head>
 
   <body>
+      <div id="flash-container">
+    <% flash.each do |key, value| %>
+      <%= render FlashComponent.new(level: key, text: value) %>
+    <% end %>
     <%= render "application/sidebar" %>
     <main class="container mx-auto mt-20 px-5 flex">
       <%= yield %>
     </main>
+
   </body>
 </html>
