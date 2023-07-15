@@ -64,3 +64,26 @@
 .form-group input[type="file"]::file-selector-button {
   @apply btn bg-white border border-blue-500 text-blue-700 hover:bg-blue-700 hover:text-white focus:ring-blue-700 outline-none text-sm shadow-none;
 }
+
+.price-input-container {
+  position: relative;
+}
+
+.price-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.price-placeholder {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust the right position as needed */
+  transform: translateY(-50%);
+  color: #999;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
