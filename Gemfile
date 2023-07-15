@@ -13,11 +13,12 @@ gem "stimulus-rails"
 gem "turbo-rails"
 
 # Assets
+gem "sass-rails"
 gem "tailwindcss-rails"
 
 # Views
-gem "view_component", "~> 3.3"
 gem "flatpickr", "~> 4.6", ">= 4.6.11.0"
+gem "view_component", "~> 3.3"
 
 # Filtering data
 gem "pagy", "~> 6.0", ">= 6.0.4"
