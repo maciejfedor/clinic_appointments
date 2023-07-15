@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
 
     if @appointment.save
       flash[:success] = "Appointment created successfully!"
-      redirect_to root_path
+      redirect_to all_appointments_path
     else
       render :new, status: :unprocessable_entity
     end
