@@ -3,6 +3,14 @@
 class AppointmentsController < ApplicationController
   before_action :set_patient, only: %i[new create]
 
+  def index
+    if params[:patient_id].present?
+      @pagy, @appointments = pagy(Appointment.where(patient_id: params[:patient_id]).includes(:doctor, :patient).all)
+    else
+      @pagy, @appointments = pagy(Appointment.includes(:doctor, :patient).all)
+    end
+  end
+
   def new
     @appointment = Appointment.new
   end
