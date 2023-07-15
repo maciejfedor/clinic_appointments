@@ -22,6 +22,7 @@ gem "inline_svg", "~> 1.9"
 gem "view_component", "~> 3.3"
 
 # Filtering data
+gem "counter_culture", "~> 3.4"
 gem "pagy", "~> 6.0", ">= 6.0.4"
 gem "ransack", "~> 4.0"
 

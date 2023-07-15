@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_11_104323) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_15_182829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_104323) do
     t.datetime "updated_at", null: false
     t.string "city", null: false
     t.string "uid", null: false
+    t.integer "appointments_count", default: 0, null: false
     t.index ["uid"], name: "index_patients_on_uid", unique: true
   end
 
