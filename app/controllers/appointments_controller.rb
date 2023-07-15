@@ -3,6 +3,14 @@
 class AppointmentsController < ApplicationController
   before_action :set_patient, only: %i[new create]
 
+  def index
+    if params[:patient_id].present?
+      @pagy, @appointments = pagy(Appointment.where(patient_id: params[:patient_id]).includes(:doctor, :patient).all)
+    else
+      @pagy, @appointments = pagy(Appointment.includes(:doctor, :patient).all)
+    end
+  end
+
   def new
     @appointment = Appointment.new
   end
@@ -12,7 +20,7 @@ class AppointmentsController < ApplicationController
 
     if @appointment.save
       flash[:success] = "Appointment created successfully!"
-      redirect_to root_path
+      redirect_to all_appointments_path
     else
       render :new, status: :unprocessable_entity
     end

@@ -26,7 +26,10 @@
 class Appointment < ApplicationRecord
   belongs_to :doctor
   belongs_to :patient
+  counter_culture :patient
 
   validates :start_time, presence: true
   validates :price,      presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+  default_scope { order(created_at: :desc) }
 end
