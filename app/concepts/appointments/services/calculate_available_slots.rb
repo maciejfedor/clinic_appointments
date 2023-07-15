@@ -10,7 +10,7 @@ module Appointments
       }.freeze
 
       def initialize(doctor_id:, appointment_date:)
-        @doctor_id = doctor_id
+        @doctor = Doctor.find(doctor_id)
         @appointment_date = appointment_date.to_datetime
         @doctor_appointments = preload_appointments
       end
@@ -34,9 +34,9 @@ module Appointments
       end
 
       def preload_appointments
-        doctor.appointments
-              .where(start_time: @appointment_date.beginning_of_day..@appointment_date.end_of_day)
-              .pluck(:start_time)
+        @doctor.appointments
+               .where(start_time: @appointment_date.beginning_of_day..@appointment_date.end_of_day)
+               .pluck(:start_time)
       end
 
       def taken?(slot)
