@@ -3,7 +3,3 @@ import "@hotwired/turbo-rails";
 import "controllers";
 
 //= require flatpickr
-
-document.addEventListener("DOMContentLoaded", function () {
-  flatpickr(".your-selector");
-});

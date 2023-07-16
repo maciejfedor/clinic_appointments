@@ -3,12 +3,6 @@
 module Appointments
   module Services
     class CalculateAvailableSlots < ApplicationService
-      APPOINTMENT_DURATION = 20
-      WORKING_HOURS = {
-        start: 8,
-        end: 16,
-      }.freeze
-
       def initialize(doctor_id:, appointment_date:)
         @doctor = Doctor.find(doctor_id)
         @appointment_date = appointment_date.to_datetime

@@ -5,9 +5,10 @@ class AppointmentsController < ApplicationController
 
   def index
     if params[:patient_id].present?
-      @pagy, @appointments = pagy(Appointment.where(patient_id: params[:patient_id]).includes(:doctor, :patient).all)
+      @pagy, @appointments = pagy(Appointment.where(patient_id: params[:patient_id]).includes(:doctor, :patient).all,
+                                  items: 8)
     else
-      @pagy, @appointments = pagy(Appointment.includes(:doctor, :patient).all)
+      @pagy, @appointments = pagy(Appointment.includes(:doctor, :patient).all, items: 8)
     end
   end
 

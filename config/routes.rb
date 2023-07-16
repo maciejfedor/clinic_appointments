@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root "patients#index"
   get "patients/:patient_id/appointments", to: "appointments#index", as: :patient_appointments
   get "/appointments", to: "appointments#index", as: :all_appointments
+  get "/chart", to: "chart#show"
 
   resources :patients, only: [:index] do
     resources :appointments, only: %i[new create]

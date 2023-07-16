@@ -1,0 +1,15 @@
+<body class="antialiased">
+   <div class="container mx-auto px-4 sm:px-8">
+      <%= render HeaderComponent.new(title: "Dashboard")%>
+<div class="flex w-full space-x-8 sm:flex-col md:flex-row flex-1">
+  <div id="patients-chart" class="sm:w-full md:w-1/2">
+<div
+  data-controller="patients-chart"
+  data-patients-chart-categories-value="<%= @categories %>"
+  data-patients-chart-series-value="<%= @series %>"
+>
+  <div data-patients-chart-target="chart"></div>
+</div>  </div>
+</div>
+</div>
+</body>
