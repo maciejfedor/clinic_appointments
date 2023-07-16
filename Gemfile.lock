@@ -112,6 +112,8 @@ GEM
     flatpickr (4.6.11.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    groupdate (2.5.3)
+      activesupport (>= 3)
     htmlbeautifier (1.4.2)
     htmlentities (4.3.4)
     i18n (1.14.1)
@@ -315,6 +317,7 @@ DEPENDENCIES
   counter_culture (~> 3.4)
   debug
   flatpickr (~> 4.6, >= 4.6.11.0)
+  groupdate (~> 2.5, >= 2.5.2)
   importmap-rails
   inline_svg (~> 1.9)
   listen (~> 3.8)
