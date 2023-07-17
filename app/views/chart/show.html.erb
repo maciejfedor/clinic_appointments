@@ -1,6 +1,7 @@
 <body class="antialiased">
    <div class="container mx-auto px-4 sm:px-8">
       <%= render HeaderComponent.new(title: "Dashboard")%>
+  <%if Patient.any?%>
 <div class="flex w-full space-x-8 sm:flex-col md:flex-row flex-1">
   <div id="patients-chart" class="sm:w-full md:w-1/2">
 <div
@@ -9,7 +10,14 @@
   data-patients-chart-series-value="<%= @series %>"
 >
   <div data-patients-chart-target="chart"></div>
-</div>  </div>
+</div>  
 </div>
+  <% else %>
+    <div class="flex flex-col w-full h-screen px-4 py-8 overflow-y-auto border-r">
+      <h2 class="text-3xl font-semibold text-center text-blue-800">There are no patients to display the chart for</h2>
+    </div>
+<% end %>
+</div>
+
 </div>
 </body>
