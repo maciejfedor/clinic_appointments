@@ -15,6 +15,8 @@ module ClinicAppointments
 
     config.eager_load_paths << Rails.root.join("lib")
 
+    config.assets.css_compressor = nil
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

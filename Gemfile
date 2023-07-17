@@ -40,6 +40,9 @@ group :development, :test do
   gem "bullet", "~> 7.0", ">= 7.0.7"
   gem "bundler-audit", "~> 0.9.1", require: false
   gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "factory_bot", "~> 6.2", ">= 6.2.1"
+  gem "rails-controller-testing", "~> 1.0", ">= 1.0.5"
+  gem "rspec-rails", "~> 6.0", ">= 6.0.3"
   gem "rubocop", "~> 1.54", require: false
 end
 
@@ -53,5 +56,7 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 5.3"
+  gem "simplecov", "~> 0.22.0", require: false
   gem "webdrivers"
 end

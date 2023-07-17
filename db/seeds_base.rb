@@ -24,7 +24,7 @@ module Seeds
         slots
       end
 
-      def generate_random_time(_doctor)
+      def generate_random_time
         slots = minute_slots
         loop do
           hour = rand(WORKING_HOURS[:start]...WORKING_HOURS[:end])
