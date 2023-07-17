@@ -53,7 +53,7 @@
 }
 .form-group input,
 .form-group select {
-  @apply appearance-none w-full max-w-prose bg-white text-gray-700 border-gray-200 rounded-sm focus:ring-1 focus:ring-blue-300 focus:border-blue-300;
+  @apply appearance-none w-80 max-w-prose bg-white text-gray-700 border-gray-200 rounded-sm focus:ring-1 focus:ring-blue-300 focus:border-blue-300;
 }
 .form-group label.is-invalid {
   @apply text-red-500;
@@ -86,4 +86,22 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.slot-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.slot-button {
+  padding: 8px 12px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  margin: 4px;
+}
+
+.slot-button.selected {
+  background-color: #007bff;
+  color: white;
 }

@@ -7,6 +7,7 @@ export default class extends Controller {
     flatpickr(".start_time", {
       dateFormat: "Y-m-d",
       minDate: "today",
+      inline: true,
       disable: [
         function (date) {
           return date.getDay() === 0 || date.getDay() === 6;
