@@ -1,6 +1,6 @@
    <% if @resource.errors.any? %>
     <div id="error_explanation" class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
-      <h2 class="font-bold"><%= pluralize(@resource.errors.count, "error") %> prohibited this job from being saved:</h2>
+      <h2 class="font-bold"><%= pluralize(@resource.errors.count, "error") %> prohibited this appointment from being saved:</h2>
       <ul>
         <% @resource.errors.each do |error| %>
           <li><%= error.full_message %></li>
