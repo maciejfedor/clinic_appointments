@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# Using create! within that seed is time consuming, but it's a good way to ensure that the data is valid.
 module Seeds
   class Appointments < Base
     execute! do
@@ -20,10 +19,9 @@ module Seeds
           start_time:,
         }
 
-        appointment_records << appointment_params
+        Appointment.create!(appointment_params)
+
       end
-      Appointment.insert_all(appointment_records, unique_by: %i[start_time doctor_id patient_id])
-      Appointment.counter_culture_fix_counts
     end
   end
 end

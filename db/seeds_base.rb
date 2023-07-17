@@ -25,14 +25,14 @@ module Seeds
       end
 
       def generate_random_time(_doctor)
+        slots = minute_slots
         loop do
-          slots = minute_slots
-          hour = rand(WORKING_HOURS[:start]..WORKING_HOURS[:end] - 1)
+          hour = rand(WORKING_HOURS[:start]...WORKING_HOURS[:end])
           min = slots.sample
-          date = DateTime.current + rand(1..12).weeks
+          date = DateTime.current + rand(1..90).days
           date = date.change(hour:, min:)
 
-          next if (1..5).cover?(date.wday)
+         next unless (1..5).cover?(date.wday) 
 
           break date
         end

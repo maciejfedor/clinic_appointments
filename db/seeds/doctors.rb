@@ -5,8 +5,10 @@ module Seeds
     DOCTOR_NAMES = %w[Adam Jane John Edward].freeze
 
     execute! do
+      doctors_data = []
       DOCTOR_NAMES.each do |name|
-        Doctor.first_or_create!(first_name: name, last_name: "Doctor")
+        doctors_data << { first_name: name, last_name: "Doctor" }
+        Doctor.insert_all(doctors_data, unique_by: %i[first_name last_name])
       end
     end
   end
