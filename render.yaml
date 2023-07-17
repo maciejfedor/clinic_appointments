@@ -4,6 +4,11 @@ databases:
     user: clinic_appointments
 
 services:
+  - type: redis
+    name: cache
+    ipAllowList: []
+    plan: free
+    maxmemoryPolicy: allkeys-lfu
   - type: web
     name: clinic_appointments
     runtime: ruby
@@ -16,3 +21,8 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: cache
+          property: connectionString

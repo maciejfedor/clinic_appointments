@@ -12,6 +12,7 @@ gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
 
+
 # Assets
 gem "sass-rails"
 gem "tailwindcss-rails"
@@ -30,7 +31,8 @@ gem "ransack", "~> 4.0"
 # Other
 gem "bootsnap", require: false
 gem "name_of_person", "~> 1.1", ">= 1.1.1"
-gem "redis", "~> 4.0"
+gem 'redis', '~> 5.0', '>= 5.0.6'
+gem "hiredis"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
