@@ -4,7 +4,7 @@ module Charts
   module Services
     class PreparePatientChartData < ApplicationService
       def call
-        query_data
+        query_data if Patient.any?
       end
 
       private
