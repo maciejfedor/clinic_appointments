@@ -10,7 +10,7 @@ module Seeds
         patient = patients.sample
         doctor = doctors.sample
 
-        start_time = generate_random_time(doctor)
+        start_time = generate_random_time
 
         appointment_params = {
           patient_id: patient.id,
