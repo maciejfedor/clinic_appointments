@@ -43,6 +43,7 @@ group :development, :test do
   gem "rubocop", "~> 1.54", require: false
   gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
   gem 'factory_bot', '~> 6.2', '>= 6.2.1'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
 end
 
 group :development do
@@ -57,4 +58,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'simplecov', '~> 0.22.0', require: false
+  gem 'shoulda-matchers', '~> 5.3'
 end
