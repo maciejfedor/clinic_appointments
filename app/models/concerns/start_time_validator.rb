@@ -6,13 +6,19 @@ class StartTimeValidator < Base
     record.errors.add(:start_time, "can't be in the past") if record.start_time.present? && record.start_time < Time.now
 
     unless record.start_time.present? && record.start_time.hour.between?(WORKING_HOURS[:start],
-                                           WORKING_HOURS[:end] - 1)
+                                                                         WORKING_HOURS[:end] - 1)
       record.errors.add(:start_time, "must be within working hours")
     end
 
-    record.errors.add(:start_time, "must be on working day")  unless record.start_time.present? && (1..5).cover?(record.start_time.wday)
+    unless record.start_time.present? && (1..5).cover?(record.start_time.wday)
+      record.errors.add(:start_time,
+                        "must be on working day")
+    end
 
-    record.errors.add(:start_time, "must be in a slot") unless record.start_time.present? && minute_slots.include?(record.start_time.min)
+    return if record.start_time.present? && minute_slots.include?(record.start_time.min)
+
+    record.errors.add(:start_time,
+                      "must be in a slot")
   end
   # rubocop:enable Metrics/AbcSize
 end

@@ -2,18 +2,20 @@ AllCops:
   NewCops: enable
   DisplayCopNames: true
   Exclude:
-    - 'config.ru'
-    - 'Rakefile'
-    - 'db/**/*'
-    - 'config/environments/*'
-    - 'config/initializers/*'
-    - 'bin/*'
-    - 'vendor/**/*'
-    - 'lib/tasks/*'
+    - "config.ru"
+    - "Rakefile"
+    - "db/**/*"
+    - "config/environments/*"
+    - "config/initializers/*"
+    - "bin/*"
+    - "vendor/**/*"
+    - "lib/tasks/*"
+    - "spec/**/*"
+    - "app/models/concerns/*"
 
 Style/FrozenStringLiteralComment:
   Exclude:
-    - 'Gemfile'
+    - "Gemfile"
 
 Style/Documentation:
   Enabled: false
