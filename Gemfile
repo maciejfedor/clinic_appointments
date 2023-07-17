@@ -41,6 +41,8 @@ group :development, :test do
   gem "bundler-audit", "~> 0.9.1", require: false
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "rubocop", "~> 1.54", require: false
+  gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+  gem 'factory_bot', '~> 6.2', '>= 6.2.1'
 end
 
 group :development do
