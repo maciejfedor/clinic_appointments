@@ -46,20 +46,11 @@ module DataImport
     end
 
     def date_of_birth(uid)
-      year, month, day = uid[0..1], uid[2..3], uid[4..5]
-
-      if month.to_i > 12
-        month = month.to_i - 20
-        year = "20#{year}"
-      else
-        year = "19#{year}"
-      end
-      Date.new(year.to_i, month.to_i, day.to_i)
+      Parsers::UidParser.parse_date_of_birth(uid)
     end
 
     def gender(uid)
-      gender_number = uid[9].to_i
-      gender_number.even? ? "Female" : "Male"
+      Parsers::UidParser.parse_gender(uid)
     end
   end
 end
