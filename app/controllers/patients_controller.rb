@@ -3,6 +3,6 @@
 class PatientsController < ApplicationController
   def index
     @q = Patient.ransack(params[:q])
-    @pagy, @patients = pagy(@q.result(distinct: true).includes(:appointments), items: 8)
+    @pagy, @patients = pagy(@q.result(distinct: true).includes(:appointments), items: 6)
   end
 end

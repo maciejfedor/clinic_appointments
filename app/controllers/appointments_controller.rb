@@ -6,7 +6,7 @@ class AppointmentsController < ApplicationController
   before_action :set_appointments, only: %i[index]
 
   def index
-    @pagy, @appointments = pagy(@appointments, items: 8)
+    @pagy, @appointments = pagy(@appointments, items: 6)
   end
 
   def new
