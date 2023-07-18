@@ -1,24 +1,50 @@
-# README
+# Clinic appointments
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+LIVE SITE URL: [CLINIC](https://clinic-appointments.onrender.com/)
 
-Things you may want to cover:
+## Overview
 
-* Ruby version
+Scheduling appointments app build with Rails, Postgresql, ViewComponents and TailwindCSS, utilizing Hotwire stack
 
-* System dependencies
+### Functionalities
 
-* Configuration
+- Import patients via csv file
+- Patients index view with search, filtering and sorting using turbo and stimulus
+- New appointments creation/editing with dynamic form
+- All appoiontments and patients appointmens index view
+- Patients data dashboard chart with stimulus.js and ApexChart
 
-* Database creation
+## Requirements
 
-* Database initialization
+- ruby 3.2.2
+- rails 7.0.6
+- postgresql 14.5
+- redis
 
-* How to run the test suite
+## Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle install
+rails db:create
+rails db:migrate
+```
 
-* Deployment instructions
+### Seed
 
-* ...
+```
+rake db:seed:all
+```
+
+### Patients import
+
+```
+rake v import:patients
+```
+
+### lefthook
+
+Lefthook is set up as a pre-commit hook which runs rubocop and
+
+```
+lefthook install
+```
