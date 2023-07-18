@@ -3,7 +3,7 @@
 class StartTimeValidator < Base
   # rubocop:disable Metrics/AbcSize
   def validate(record)
-    record.errors.add(:start_time, "can't be in the past") if record.start_time.present? && record.start_time < Time.zone.now
+    record.errors.add(:start_time, "can't be in the past") if record.start_time.present? && date_in_the_past?(record)
 
     unless record.start_time.present? && record.start_time.hour.between?(WORKING_HOURS[:start],
                                                                          WORKING_HOURS[:end] - 1)
