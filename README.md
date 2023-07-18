@@ -43,7 +43,7 @@ rake v import:patients
 
 ### lefthook
 
-Lefthook is set up as a pre-commit hook which runs rubocop and
+Lefthook is set up as a pre-commit hook which runs rubocop and brakeman
 
 ```
 lefthook install
