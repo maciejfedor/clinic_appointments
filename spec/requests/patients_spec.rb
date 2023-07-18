@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Patients", type: :request do
-  let!(:patients) { create_list(:patient, 8) }
+  let!(:patients) { create_list(:patient, 6) }
   let!(:appointment) { create(:appointment, patient: patients.first) }
   subject(:request) { get patients_path }
 
@@ -23,7 +23,7 @@ RSpec.describe "Patients", type: :request do
   it "paginates patients" do
     request
     expect(assigns(:pagy)).to be_present
-    expect(assigns(:patients).size).to eq(8)
+    expect(assigns(:patients).size).to eq(6)
   end
 
   context "when searching by last name" do

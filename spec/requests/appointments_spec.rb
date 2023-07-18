@@ -65,11 +65,13 @@ RSpec.describe "Appointments", type: :request do
     context "with valid params" do
       let(:params) do
         {
+          appointment: {
           doctor_id: doctor.id,
           price: 100,
           date: "2024-03-26",
           slot: "14:40",
         }
+      }
       end
 
       it "creates a new appointment" do
