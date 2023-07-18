@@ -33,4 +33,8 @@ class Appointment < ApplicationRecord
   validates_with StartTimeValidator
 
   default_scope { order(created_at: :desc) }
+
+  def date
+    start_time.to_date if start_time.present?
+  end
 end
