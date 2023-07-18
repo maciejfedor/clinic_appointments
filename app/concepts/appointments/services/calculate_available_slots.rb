@@ -13,7 +13,8 @@ module Appointments
         time_slots = []
         (WORKING_HOURS[:start]...WORKING_HOURS[:end]).each do |hour|
           0.upto(slots_per_hour - 1) do |minute|
-            slot = @appointment_date.change(hour:, min: minute * APPOINTMENT_DURATION)
+            slot = DateTime.new(@appointment_date.year, @appointment_date.month, @appointment_date.day, hour,
+                                minute * APPOINTMENT_DURATION)
             time_slots << slot.strftime("%H:%M") unless taken?(slot)
           end
         end
@@ -33,8 +34,7 @@ module Appointments
       end
 
       def taken?(slot)
-        slot_time = Time.parse(slot.strftime("%H:%M"))
-        Time.now >= slot_time || @doctor_appointments.include?(slot)
+        slot.after?(Time.zone.now) && @doctor_appointments.include?(slot)
       end
     end
   end
