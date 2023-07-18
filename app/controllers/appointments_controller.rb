@@ -2,14 +2,11 @@
 
 class AppointmentsController < ApplicationController
   before_action :set_patient, only: %i[new create]
+  before_action :set_appointment, only: %i[edit update destroy]
+  before_action :set_appointments, only: %i[index]
 
   def index
-    if params[:patient_id].present?
-      @pagy, @appointments = pagy(Appointment.where(patient_id: params[:patient_id]).includes(:doctor, :patient).all,
-                                  items: 8)
-    else
-      @pagy, @appointments = pagy(Appointment.includes(:doctor, :patient).all, items: 8)
-    end
+    @pagy, @appointments = pagy(@appointments, items: 8)
   end
 
   def new
@@ -17,7 +14,8 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = Appointment.new(appointment_params.merge(start_time: date_and_slot_to_start_time))
+    @appointment = Appointment.new(appointment_params.merge(start_time: date_and_slot_to_start_time,
+                                                            patient_id: params[:patient_id]))
 
     if @appointment.save
       flash[:success] = "Appointment created successfully!"
@@ -27,19 +25,48 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @appointment.update(appointment_params.merge(start_time: date_and_slot_to_start_time))
+      flash[:notice] = "Appointment updated successfully!"
+      redirect_to all_appointments_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @appointment.destroy
+    flash[:notice] = "Appointment deleted successfully!"
+    redirect_to all_appointments_path
+  end
+
   private
 
   def appointment_params
-    params.permit(:patient_id, :doctor_id, :price)
+    params.require(:appointment).permit(:patient_id, :doctor_id, :price)
   end
 
   def date_and_slot_to_start_time
-    date = params[:date]
-    slot = params[:slot]
+    date = params[:appointment][:date]
+    slot = params[:appointment][:slot]
     Time.zone.parse("#{date} #{slot}")
   end
 
   def set_patient
     @patient = Patient.find(params[:patient_id])
+  end
+
+  def set_appointment
+    @appointment = Appointment.find(params[:id])
+  end
+
+  def set_appointments
+    @appointments = if params[:patient_id].present?
+                      Appointment.where(patient_id: params[:patient_id]).includes(:doctor, :patient).all
+                    else
+                      Appointment.includes(:doctor, :patient).all
+                    end
   end
 end

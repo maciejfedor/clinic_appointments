@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/appointments", to: "appointments#index", as: :all_appointments
   get "/chart", to: "chart#show"
 
+  resources :appointments, only: %i[show edit update destroy]
+
   resources :patients, only: [:index] do
     resources :appointments, only: %i[new create]
   end
