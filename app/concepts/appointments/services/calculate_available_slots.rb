@@ -34,11 +34,7 @@ module Appointments
       end
 
       def taken?(slot)
-        date_in_the_past?(slot) || @doctor_appointments.include?(slot)
-      end
-
-      def date_in_the_past?(slot)
-        Time.now.strftime("%H%M") > slot.strftime("%H%M")
+        slot.after?(Time.zone.now) && @doctor_appointments.include?(slot)
       end
     end
   end
