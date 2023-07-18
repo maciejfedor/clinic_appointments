@@ -8,22 +8,15 @@ class SidenavItemComponent < ViewComponent::Base
 
   private
 
-  def sidenav_item_class
-    [
-      (active? ? active_sidenav_item_class : inactive_sidenav_item_class).to_s,
-      "flex items-center px-4 py-2 mt-5 rounded-md",
-    ].join(" ")
-  end
-
-  def active_sidenav_item_class
+  def active
     "bg-gray-200"
   end
 
-  def inactive_sidenav_item_class
+  def inactive
     "hover:bg-gray-200"
   end
 
-  def active?
-    current_page?(@link)
+  def svg
+    "#{@label.downcase}.svg"
   end
 end
