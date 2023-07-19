@@ -23,8 +23,8 @@ module Seeds
 
         
       end
-      Appointment.insert_all(appointment_records, unique_by: %i[start_time doctor_id patient_id] )
-      Appointment.counter_culture_fix_counts
+      Appointment::Model.insert_all(appointment_records, unique_by: %i[start_time doctor_id patient_id] )
+      Appointment::Model.counter_culture_fix_counts
     end
   end
 end

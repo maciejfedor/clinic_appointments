@@ -32,7 +32,7 @@ module Appointment
     # Associations
     belongs_to :doctor, class_name: "User::Doctor::Model"
     belongs_to :patient, class_name: "User::Patient::Model"
-    counter_culture :patient
+    counter_culture :patient, class_name: "User::Patient::Model", column_name: "appointments_count"
 
     # Validations
     validates :start_time, presence: true
