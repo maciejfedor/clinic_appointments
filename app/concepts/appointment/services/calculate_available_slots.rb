@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module Appointments
+module Appointment
   module Services
     class CalculateAvailableSlots < ApplicationService
       def initialize(doctor_id:, appointment_date:)
-        @doctor = Doctor.find(doctor_id)
+        @doctor = User::Doctor::Model.find(doctor_id)
         @appointment_date = appointment_date.to_datetime
         @doctor_appointments = preload_appointments
       end

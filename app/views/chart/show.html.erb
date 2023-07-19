@@ -1,7 +1,7 @@
 <body class="antialiased">
    <div class="container mx-auto px-4 sm:px-8">
       <%= render HeaderComponent.new(title: "Dashboard")%>
-  <%if Patient.any?%>
+  <%if User::Patient::Model.any?%>
 <div class="flex w-full space-x-8 sm:flex-col md:flex-row flex-1">
   <div id="patients-chart" class="sm:w-full md:w-1/2">
 <div

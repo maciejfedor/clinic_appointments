@@ -5,8 +5,8 @@ class AvailableSlotsController < ApplicationController
     doctor_id = params[:doctor_id]
     appointment_date = params[:appointment_date]
 
-    slots = Appointments::Services::CalculateAvailableSlots.call(doctor_id:,
-                                                                 appointment_date:)
+    slots = ::Appointment::Services::CalculateAvailableSlots.call(doctor_id:,
+                                                                  appointment_date:)
 
     render json: slots
   end

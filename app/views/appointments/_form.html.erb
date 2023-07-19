@@ -6,7 +6,7 @@
         <div data-controller="toggle">
           <div class="form-group">
           <%= f.label :doctor, class: "form-label", style: "display: block" %>
-          <%= f.collection_select :doctor_id, Doctor.all, :id, :name, { prompt: true },
+          <%= f.collection_select :doctor_id, User::Doctor::Model.all, :id, :name, { prompt: true },
                                    { data: { toggle_target: 'input1', action: "change->toggle#show", class: "mt-1" } } %>
                                    </div>
           <div class="form-group">

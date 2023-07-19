@@ -2,7 +2,7 @@
 
 class PatientsController < ApplicationController
   def index
-    @q = Patient.ransack(params[:q])
+    @q = User::Patient::Model.ransack(params[:q])
     @pagy, @patients = pagy(@q.result(distinct: true).includes(:appointments), items: 6)
   end
 end

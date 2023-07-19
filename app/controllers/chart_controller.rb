@@ -2,7 +2,7 @@
 
 class ChartController < ApplicationController
   def show
-    report_data = Charts::Services::PreparePatientChartData.call
+    report_data = Chart::Services::PreparePatientChartData.call
 
     categories_data = report_data&.keys || []
     series_data = report_data&.values || []

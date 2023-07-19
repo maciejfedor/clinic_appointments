@@ -2,8 +2,8 @@
 module Seeds
   class Appointments < Base
     execute! do
-      patients = Patient.all
-      doctors = Doctor.all
+      patients = User::Patient::Model.all
+      doctors = User::Doctor::Model.all
       appointment_records = []
 
       5000.times do

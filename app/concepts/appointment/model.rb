@@ -23,18 +23,28 @@
 #  fk_rails_...  (doctor_id => doctors.id)
 #  fk_rails_...  (patient_id => patients.id)
 #
-class Appointment < ApplicationRecord
-  belongs_to :doctor
-  belongs_to :patient
-  counter_culture :patient
+module Appointment
+  class Model < ApplicationRecord
+    # Basics
+    self.table_name = :appointments
+    self.model_name = "Appointment"
 
-  validates :start_time, presence: true
-  validates :price,      presence: true, numericality: { greater_than_or_equal_to: 0 }
-  validates_with StartTimeValidator
+    # Associations
+    belongs_to :doctor, class_name: "User::Doctor::Model"
+    belongs_to :patient, class_name: "User::Patient::Model"
+    counter_culture :patient
 
-  default_scope { order(created_at: :desc) }
+    # Validations
+    validates :start_time, presence: true
+    validates :price,      presence: true, numericality: { greater_than_or_equal_to: 0 }
+    validates_with Appointment::Validators::StartTimeValidator
 
-  def date
-    start_time.to_date if start_time.present?
+    # Scopes
+    # default_scope { order(created_at: :desc) }
+
+    # Methods
+    def date
+      start_time.to_date if start_time.present?
+    end
   end
 end

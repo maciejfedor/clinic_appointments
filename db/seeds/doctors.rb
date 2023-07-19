@@ -8,7 +8,7 @@ module Seeds
       doctors_data = []
       DOCTOR_NAMES.each do |name|
         doctors_data << { first_name: name, last_name: "Doctor" }
-        Doctor.insert_all(doctors_data, unique_by: %i[first_name last_name])
+        User::Doctor::Model.insert_all(doctors_data, unique_by: %i[first_name last_name])
       end
     end
   end

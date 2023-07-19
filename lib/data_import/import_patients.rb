@@ -42,7 +42,7 @@ module DataImport
     end
 
     def create_patients(records)
-      Patient.upsert_all(records, unique_by: :uid)
+      User::Patient::Model.upsert_all(records, unique_by: :uid)
     end
 
     def date_of_birth(uid)

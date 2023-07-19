@@ -10,12 +10,12 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = Appointment.new
+    @appointment = Appointment::Model.new
   end
 
   def create
-    @appointment = Appointment.new(appointment_params.merge(start_time: date_and_slot_to_start_time,
-                                                            patient_id: params[:patient_id]))
+    @appointment = Appointment::Model.new(appointment_params.merge(start_time: date_and_slot_to_start_time,
+                                                                   patient_id: params[:patient_id]))
 
     if @appointment.save
       flash[:success] = "Appointment created successfully!"
@@ -55,18 +55,18 @@ class AppointmentsController < ApplicationController
   end
 
   def set_patient
-    @patient = Patient.find(params[:patient_id])
+    @patient = User::Patient::Model.find(params[:patient_id])
   end
 
   def set_appointment
-    @appointment = Appointment.find(params[:id])
+    @appointment = Appointment::Model.find(params[:id])
   end
 
   def set_appointments
     @appointments = if params[:patient_id].present?
-                      Appointment.where(patient_id: params[:patient_id]).includes(:doctor, :patient).all
+                      Appointment::Model.where(patient_id: params[:patient_id]).includes(:doctor, :patient).all
                     else
-                      Appointment.includes(:doctor, :patient).all
+                      Appointment::Model.includes(:doctor, :patient).all
                     end
   end
 end
